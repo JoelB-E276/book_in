@@ -1,7 +1,6 @@
 <?php
 // Controleur qui gère l'affichage de tous les utilisateurs
 include "view/template/headNav.php";
-include "view/usersView.php";
 require "model/entity/user.php";
 require "model/userManager.php";
 
@@ -19,4 +18,7 @@ var_dump($getUsers);
 
 
 
-<?php include "view/template/footer.php";?>
+<?php 
+include "view/usersView.php";
+include "view/template/footer.php";
+?>
