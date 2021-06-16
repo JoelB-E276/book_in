@@ -102,16 +102,16 @@ textarea {
 }
 
 body{
-    background-color: rgb(252, 210, 195);
+    background-color: rgb(10, 146, 51);
 }
 main{
     min-width: 80vh;
 }
 
 footer{
-    height: 20vh;
+    height: 10vh;
     color: chartreuse!important;
-    background-color: rgb(99, 47, 47);
+    background-color: rgb(102, 13, 13);
 }
 
 

@@ -1,18 +1,27 @@
-<?php include "view/template/headNav.php";
-      include "view/indexView.php";
-      include "view/template/footer.php";
-// Controlleur qui gérer l'affichage de tous les livres
+<?php 
+      require "model/dataBase.php";
+      
+      
+      $connect = new Connexion();
+      $connect->connexion();
 
-
-
-
-
-
-
-
-
-
-
-
+      include "view/template/headNav.php";
+      require "view/indexView.php";
 
 ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php include "view/template/footer.php";?>

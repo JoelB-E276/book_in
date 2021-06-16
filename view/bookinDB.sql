@@ -10,44 +10,56 @@ GRANT ALL PRIVILEGES ON bookin_php.* To 'bookin'@'Localhost' IDENTIFIED BY 'book
 CREATE TABLE `user`
 (
   id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  lastname VARCHAR(50) NOT NULL,
-  firstname VARCHAR(50) NOT NULL,
+  lastname VARCHAR(250) NOT NULL,
+  firstname VARCHAR(250) NOT NULL,
   email VARCHAR(50) NOT NULL UNIQUE,
   city VARCHAR(30) NOT NULL,
-  city_code CHAR(5) NOT NULL,
-  adress VARCHAR(50) NOT NULL,
+  city_code CHAR(6) NOT NULL,
+  adress VARCHAR(250) NOT NULL,
   birth_date DATE NOT NULL,
   book_id INT NOT NULL,
-  borrowing_date DATE NOT NULL,
-  rendering_date DATE NOT NULL,
   PRIMARY KEY (id)
-  FOREIGN KEY (account_id) REFERENCES Account(id)
-
 )
 ENGINE=InnoDB;
 
-INSERT INTO `user`
+INSERT INTO user
 (lastname, firstname, email, city, city_code, adress, birth_date)
 VALUES
-("Hopper","Grace","hopper@maboitemail.fr","New-York","10021","fifh avenue","19061209",),
-("Lovelace","Ada","lovelace@gmail.com", "10 Downing street","Londres", "18151210"),
-("Lamarr","Hedy","lamarr@yahoo.fr","Vienne","1030","27 Prinz Eugen-Straße","19141109","2" );
+("Hopper","Grace","hopper@maboitemail.fr","New-York","10021","fifh avenue","19061209"),
+("Lovelace","Ada","lovelace@gmail.com","Londres","EC2P 2E", "10 Downing street", "18151210"),
+("Lamarr","Hedy","lamarr@yahoo.fr","Vienne","1030","27 Prinz Eugen-Straße","19141109");
+
 
 
 CREATE TABLE book
 (
-  id.book INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  id_book INT UNSIGNED NOT NULL AUTO_INCREMENT,
   title VARCHAR(250) NOT NULL,
   author VARCHAR(250) NOT NULL,
-  `resume` VARCHAR(max) NOT NULL,
+  `resume` VARCHAR(8000) NULL,
   release_date DATE NOT NULL,
   genre VARCHAR(50) NOT NULL,
   `edition` VARCHAR(50) NOT NULL,
-  nbr_pages VARCHAR(50) NOT NULL,
+  number_pages VARCHAR(50) NOT NULL,
   `availability` VARCHAR(50) NOT NULL,
-  id_user INT UNSIGNED  NOT NULL
+  `user_id` INT UNSIGNED  NULL,
+  borrowing_date DATE NULL,
+  rendering_date DATE NULL,
+  PRIMARY KEY (id_book),
+  FOREIGN KEY (user_id) REFERENCES `user`(id)
 )
 
+INSERT INTO book
+(`title`, `author`, `release_date`, `genre`, `edition`, `number_pages`, `availability`, `resume`)
+VALUES
+("Au revoir là haut", "Pierre Lemaitre","20131130","Roman","Albin Michel", "624", "oui","Pour le commerce, la guerre présente beaucoup d'avantages, même après. Sur les ruines du plus grand carnage du XX° siècle, deux rescapés des tranchées, passablement abîmés, prennent leur revanche en réalisant une escroquerie aussi spectaculaire qu'amorale. Des sentiers de la gloire à la subversion de la patrie victorieuse, ils vont découvrir que la France ne plaisante pas avec Ses morts...Fresque d'une rare cruauté, remarquable par son architecture et sa puissance d'évocation, Au revoir là-haut est le grand roman de l'après-guerre de 14, de l'illusion de l'armistice, de l'État qui glorifie ses disparus et se débarrasse de vivants trop encombrants, de l\'abomination érigée en vertu. Dans l\'atmosphère crépusculaire des lendemains qui déchantent, peuplée de misérables pantins et de lâches reçus en héros, Pierre Lemaitre compose la grande tragédie de cette génération perdue avec un talent et une maîtrise impressionnants."),
+("Alex","Pierre Lemaitre","20110202","Thriller","Albin Michel", "392", "oui","Qui connaît vraiment Alex ?Elle est belle. Excitante. Est-ce pour cela qu'on l'a enlevée, séquestrée et livrée à l'inimaginable ? Mais quand la police découvre enfin sa prison, Alex a disparu.Alex, plus intelligente que son bourreau.Alex qui ne pardonne rien, qui n'oublie rien ni personne."),
+("Robe de marié", "Pierre Lemaitre","20090107","Roman", "Calmann-Lévy","270","oui","Nul n'est à l'abri de la folie. Sophie, une jeune femme qui mène une existence paisible, commence à sombrer lentement dans la démence: mille petits signes inquiétants s'accumulent puis tout s'accélère. Est-elle responsable de la mort de sa belle-mère, de celle de son mari infirme ? Peu à peu, elle se retrouve impliquée dans plusieurs meurtres dont, curieusement, elle n'a aucun souvenir. Alors, désespérée mais lucide, elle organise sa fuite; elle va changer de nom, de vie, se marier, mais son douloureux passé la rattrape..."),
+("Travail soigné", "Pierre Lemaitre", "20100609", "Thriller", "Livre de Poche", "416", "oui", "Dès le premier meurtre, épouvantable et déroutant, Camille Verhoeven comprend que cette affaire ne ressemblera à aucune autre. Et il a raison. D'autres crimes se révèlent, horribles, gratuits... La presse, le juge, le préfet se déchaînent bientôt contre la méthode Verhoeven. Policier atypique, le commandant Verhoeven ne craint pas les affaires hors normes, mais celle-ci va le laisser totalement seul face à un assassin qui semble avoir tout prévu. Jusque dans le moindre détail. Jusqu'à la vie même de Camille qui n'échappera pas au spectacle terrible que le tueur a pris tant de soin à organiser, dans les règles de l'art..."),
+("Les fourmis", "Bernard Werber", "20020824", "Science-fiction", "Livre de Poche", "320","oui", "Le temps que vous lisiez ces lignes, sept cents millions de fourmis seront nées sur la planète. Sept cents millions d'individus dans une communauté estimée à un milliard de milliards, et qui a ses villes, sa hiérarchie, ses colonies, son langage, sa production industrielle, ses esclaves, ses mercenaires... Ses armes aussi. Terriblement destructrices. Lorsqu'il entre dans la cave de la maison léguée par un vieil oncle entomologiste, Jonathan Wells est loin de se douter qu'il va à leur rencontre. A sa suite, nous allons découvrir le monde fabuleusement riche, monstrueux et fascinant de ces infra terrestres, au fil d'un thriller unique en son genre, où le suspense et l'horreur reposent à chaque page sur les données scientifiques les plus rigoureuses. Voici pour la première fois un roman dont les héros sont des... fourmis."),
+("La révolution des fourmis", "Bernard Werber", "20011130","Science-fiction","Livre de Poche", "672","oui","Que peuvent nous envier les fourmis ? L’humour, l’amour, l’art. Que peuvent leur envier les hommes ? L’harmonie avec la nature, l’absence de peur, la communication absolue. Après des millénaires d’ignorance, les deux civilisations les plus évoluées de la planète vont-elles enfin pouvoir se rencontrer et se comprendre ? Sans se connaître, Julie Pinson, une étudiante rebelle, et 103e, une fourmi exploratrice, vont essayer de faire la révolution dans leur monde respectif pour le faire évoluer. Les Fourmis était le livre du contact, Le Jour des Fourmis le livre de la confrontation. La Révolution des Fourmis est le livre de la compréhension. Mais au-delà du thème des fourmis, c'est une révolution d'humains, une révolution non violente, une révolution faite de petites touches discrètes et d'idées nouvelles que nous propose Bernard Werber. À la fois roman d’aventures et livre initiatique, ce couronnement de l’épopée myrmécéenne nous convie à entrer dans un avenir qui n’est peut-être pas seulement de la science-fiction…"),
+("Millénium 1 : Les hommes qui n'aimaient pas les femmes", "Stieg Larson","20060609","Roman","Actes Sud","652", "oui","Ancien rédacteur de Millénium, revue d'investigations sociales et économiques, Mikael Blomkvist est contacté par un gros industriel pour relancer une enquête abandonnée depuis quarante ans. Dans le huis clos d'une île, la petite nièce de Henrik Vanger a disparu, probablement assassinée, et quelqu'un se fait un malin plaisir de le lui rappeler à chacun de ses anniversaires. Secondé par Lisbeth Salander, jeune femme rebelle et perturbée, placée sous contrôle social mais fouineuse hors pair, Mikael Blomkvist, cassé par un procès en diffamation qu'il vient de perdre, se plonge sans espoir dans les documents cent fois examinés, jusqu'au jour où une intuition lui fait reprendre un dossier. Régulièrement bousculés par de nouvelles informations, suivant les méandres des haines familiales et des scandales financiers, lancés bientôt dans le monde des tueurs psychopathes, le journaliste tenace et l'écorchée vive vont résoudre l'affaire des fleurs séchées et découvrir ce qu'il faudrait peut-être taire."),
+("La ligne de sang", "DOA", "20070215","Thriller","Gallimard","656","oui","Madeleine Castinel est étudiante à Lyon. Elle sort d'une rupture difficile avec son petit ami, Paul Grieux. Depuis le soir du 30 septembre 2003, elle est partie sans prévenir ses proches. Personne ne s'inquiète : ils ont l'habitude de ses fugues solitaires. Priscille Mer est lieutenant de police. Jeune, inexpérimentée, elle découvre jour après jour le quotidien déprimant du commissariat de la Croix-Rousse. Le 30 septembre 2003, en début de soirée, elle intervient sur un accident de la circulation. Il y a un seul blessé, le conducteur d'une moto. Il se nomme Paul Grieux. Le 30 septembre 2003, alors qu'il rentre chez lui après une journée de travail, le capitaine Marc Launay, du SRPJ de Lyon, croise l'une de ses anciennes stagiaires, Priscille Mer, sur les lieux d'un accident. Pour l'aider, il décide de s'occuper de prévenir le seul proche identifié de Paul Grieux. Il n'a qu'une adresse, celle de la fiancée du motard, Madeleine Castinel. Paul Grieux est antiquaire. Jusqu'au soir du 30 septembre 2003, il menait une existence tranquille et discrète. Presque secrète. Il était le mystérieux amant de Madeleine. A sa demande, elle parlait peu de lui, n'évoquait jamais Son Nom. Que souhaitait-il cacher ? A présent, il est dans le coma et lutte contre la mort. Il se bat, se débat, parle, délire, crie. Révèle. Mais le temps s'enfuit. Tempus fugit. Où mène la ligne de sang qui s'esquisse entre ces quatre vies ? Cela n'aurait pu être qu'un banal accident de moto sur les hauteurs de la Croix-Rousse. Un homme dans le coma victime d'un accrochage... C'est le début d'une enquête des plus troubles menée à l'instinct par les officiers de police Marc Launay et Priscille Mer. La victime, entourée de mystères, est bien trop inquiétante. Tout sue l'angoisse et la peur dans sa grande maison vide. Trop de portes fermées, de questions, de silences oppressants. Sa compagne même a disparu, comme volatilisée dans son appartement, et personne ne sait rien. Jamais elle ne mentionnait son nom. Jamais elle ne parlait de lui. À sa demande. Comme s'il avait voulu ne jamais exister. Comme s'il avait souhaité que personne ne puisse un jour savoir ce qu'il était vraiment...");
 
 
 
@@ -80,23 +92,6 @@ CREATE TABLE book
 
 
 
-
-Au revoir là haut
-    Pierre Lemaitre
-EAN : 9782253194613
-624 pages 
-roman  
-(30/11/13) 
-Résumé :
-"Pour le commerce, la guerre présente beaucoup d'avantages, même après."
-
-Sur les ruines du plus grand carnage du XX° siècle, deux rescapés des tranchées, passablement abîmés, prennent leur revanche en réalisant une escroquerie aussi spectaculaire qu'amorale. Des sentiers de la gloire à la subversion de la patrie victorieuse, ils vont découvrir que la France ne plaisante pas avec Ses morts...
-
-Fresque d'une rare cruauté, remarquable par son architecture et sa puissance d'évocation, Au revoir là-haut est le grand roman de l'après-guerre de 14, de l'illusion de l'armistice, de l'État qui glorifie ses disparus et se débarrasse de vivants trop encombrants, de l'abomination érigée en vertu.
-
-Dans l'atmosphère crépusculaire des lendemains qui déchantent, peuplée de misérables pantins et de lâches reçus en héros, Pierre Lemaitre compose la grande tragédie de cette génération perdue avec un talent et une maîtrise impressionnants.
-
-------------------link
 Alex
 Pierre Lemaitre
 EAN : 9782226218773

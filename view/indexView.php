@@ -1,7 +1,7 @@
-<p>Vos livre au catalogue s'affichent sur cette page</p>
+<p></p>
 
 <div class="container">
-    <h2></h2>
+    <h2 class="mt-5 text-center">Enregistrer un emprunt</h2>
 
     <div class="row justify-content-around mt-5">
 
