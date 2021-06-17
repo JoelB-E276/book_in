@@ -1,4 +1,4 @@
-    <footer class="fixed-bottom text-center">
+    <footer class="text-center mt-5">
       <p class="mt-5">Un beau footer</p>
     </footer>
 

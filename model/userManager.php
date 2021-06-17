@@ -1,5 +1,5 @@
 <?php
- require "dataBase.php";
+ require_once "dataBase.php";
 
 class userManager 
 {
@@ -21,12 +21,22 @@ class userManager
       {
         $result[$key] = new User($data);
       } 
-
+      
+     return $result;
     }
 
   // Récupère un utilisateur par son id
-  public function getUserById() {
-
+  public function getUserById(User $id) {
+   $query = $this->db->prepare("SELECT lastname, firstname, id FROM user WHERE id = :id") ;
+   $query->execute([
+     "id" => $id->getId()
+   ]);
+   $result = $query->fetchall(PDO::FETCH_ASSOC);
+      foreach($result as $key => $data)
+      {
+        $result[$key] = new User($data);
+      }
+     return $result;  
   }
 
   // Récupère un utilisateur par son code personnel

@@ -19,11 +19,11 @@
         <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarScroll">
-        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-            <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Les livres</a>
+        <ul class="navbar-nav me-auto mx-5 my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+            <li class="nav-item mx-5">
+            <a class="nav-link active" aria-current="page" href="book.php">Les livres</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item mx-5">
             <a class="nav-link active" href="users.php">Les utilisateurs</a>
             </li>
             <li class="nav-item dropdown">
@@ -35,9 +35,6 @@
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="#">Supprimer un livre</a></li>
             </ul>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Link</a>
             </li>
         </ul>
         <form class="d-flex">

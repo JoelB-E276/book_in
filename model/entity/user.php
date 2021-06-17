@@ -1,5 +1,5 @@
 <?php
-// Classe représetant les utilisateurs stockés en base de données
+
 class User 
 {
   public int    $id;
@@ -11,6 +11,21 @@ class User
   public string $adress;
   public string $birth_date;
   public int    $book_id;
+
+  public function __construct($data=null) 
+    {
+        if($data)
+        {
+            foreach($data as $key => $value) 
+            {
+                $setter = "set" . ucfirst($key);
+                if(method_exists($this, $setter))
+                {
+                    $this->$setter($value);
+                }
+            }
+        }
+    }
 
   public function setId(int $id)
   {
@@ -57,7 +72,7 @@ class User
         return $this->city;
   }
 
-  public function setCity_code(int $city_code)
+  public function setCity_code(string $city_code)
   {
         $this->city_code = $city_code;
   }

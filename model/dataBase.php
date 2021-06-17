@@ -11,7 +11,6 @@ class Connexion
     try 
     {
       $db = new PDO('mysql:host=localhost;dbname='. self::DB_NAME .';charset=utf8', self::USER_NAME , self::USER_PASSWORD);
-        echo "connection Class";
       return $db;
     }
       catch(Exception $error)

@@ -1,7 +1,7 @@
 <?php
 class Book
  {
-  public int    $id_book;
+  public int    $book_id;
   public string $title;
   public string $author;
   public string $resume;
@@ -29,13 +29,13 @@ class Book
         }
     }
 
-    public function setId(int $id_book)
+    public function setBook_id(int $book_id)
     {
-        $this->id_book = $id_book;
+        $this->book_id = $book_id;
     }
-    public function getId_book()
+    public function getBook_id()
     {
-        return $this->id_book;
+        return $this->book_id;
     }
 
     public function setTitle(string $title)
