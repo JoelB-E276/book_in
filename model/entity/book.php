@@ -40,11 +40,18 @@ class Book
 
     public function setTitle(string $title)
     {
-        $this->title = $title;
+        if(strlen($title) < 2)
+        {
+            echo "Le titre doit contenir plus de 2 caractères";
+        } else
+        {
+          $this->title = $title;  
+        }   
 
     }
     public function getTitle()
     {
+        
         return $this->title;
     }
 
@@ -95,7 +102,13 @@ class Book
 
     public function setNumber_pages(int $number_pages)
     {
-        $this->number_pages = $number_pages;
+        if(is_int($number_pages) != 1)
+        {
+            echo "le nombre de page du livre doit être un nombre entre 1 et 9999";
+        } else
+        {
+           $this->number_pages = $number_pages;
+        }
     }
     public function getNumber_pages()
     {

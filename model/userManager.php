@@ -1,7 +1,9 @@
 <?php
  require_once "dataBase.php";
-
-class userManager 
+ require_once "bookManager.php";
+ require_once "entity/user.php";
+ 
+class userManager extends User
 {
   public PDO $db;
 
@@ -42,5 +44,47 @@ class userManager
   // Récupère un utilisateur par son code personnel
   public function getUser() {
 
+  }
+   // Ajout l'id d'un livre 
+  public function addBook_id(User $user)
+  {
+   $user = new User($user);
+   $addbook = parent::setBook_id($user->getBook_id());
+
+   return $addbook;
+  }
+
+  public function borrower(User $user)
+  {
+    $query = $this->db->prepare 
+    (
+      "UPDATE user 
+      SET book_id = :book_id  
+      WHERE id = :id"
+    );
+  
+      $status = $query->execute([
+          "book_id" => $user->getBook_id(),
+          "id" => $user->getId()        
+      ]);
+      return TRUE;
+    
+  }
+  // Récupère les clients qui ont emprunté un livre
+  public function getUserByBook()
+  {
+    $response = $this->db->query
+    ("SELECT user.id, user.lastname, user.firstname, user.email, user.book_id ,user.city
+    FROM user 
+    WHERE book_id >= 1
+   ");   
+
+     $result = $response->fetchall(PDO::FETCH_ASSOC);
+     foreach($result as $key => $data)
+     {
+       $results[$key] = new User($data);
+     }
+     
+    return $results;  
   }
 }

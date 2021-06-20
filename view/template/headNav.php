@@ -12,9 +12,10 @@
   </head>
   <body>
   
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom border-dark">
     <div class="container-fluid">
         <a class="navbar-brand" id="nav-title" href="index.php">Book'in</a>
+        <img src="doc/book.webp" id="book" width="70vw">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
@@ -31,9 +32,9 @@
                 Ajout / Suppression
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                <li><a class="dropdown-item" href="#">Ajouter un livre</a></li>
+                <li><a class="dropdown-item" href="addBook.php">Ajouter un livre</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Supprimer un livre</a></li>
+                <li><a class="dropdown-item" href="deleteBook.php">Supprimer un livre</a></li>
             </ul>
             </li>
         </ul>

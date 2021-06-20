@@ -26,8 +26,8 @@ INSERT INTO user
 (lastname, firstname, email, city, city_code, adress, birth_date)
 VALUES
 ("Hopper","Grace","hopper@maboitemail.fr","New-York","10021","fifh avenue","19061209"),
-("Lovelace","Ada","lovelace@gmail.com","Londres","EC2P 2E", "10 Downing street", "18151210"),
-("Lamarr","Hedy","lamarr@yahoo.fr","Vienne","1030","27 Prinz Eugen-Straße","19141109");
+("Lovelace","Ada","lovelace@gmail.com","Londres","SW1A 2AA", "12 Downing street", "18151210"),
+("Lamarr","Hedy","lamarr@yahoo.fr","Vienne","1030","27 Prinz Eugen-Strabe","19141109");
 
 
 
@@ -89,7 +89,7 @@ VALUES
 
 
 
-
+/*
 
 
 Alex
@@ -320,3 +320,4 @@ A partir de ces toutes petites choses - les abeilles - célébrées par Virgile,
 Un voyage à la rencontre des abeilles et de leur extraordinaire alliance avec les fleurs dépend notre survie ; des fourmis qui tressent leur fil d'Ariane et découvrent la sortie des labyrinthes ; de l'étrange géométrie des alvéoles et des flocons de neige ; de la course des planètes, comètes et astéroïdes qui scande nos jours, nos années - et les millions d'années ; des minuscules horloges biologiques qui battent les heures au coeur de chaque vivant.
 Un voyage à travers l'espace et le temps.
 A la découverte de la mystérieuse splendeur de l'univers qui nous entoure et nous a donné naissance. 
+*/
