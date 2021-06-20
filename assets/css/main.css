@@ -96,6 +96,43 @@ textarea {
    ========================================================================== */
 
 
+#nav-title{
+    background-color: rgb(247, 247, 247)!important;
+    font-size: 4vh !important;
+}
+
+body{
+    background-color: rgb(233, 233, 233);
+}
+main{
+    min-width: 180v;
+}
+
+footer{
+    height: 10vh;
+    color: rgb(255, 255, 255)!important;
+    background-color: rgb(0, 0, 0);
+}
+
+#deleteCard{
+    background-color: rgb(143, 143, 143);
+    border-color: brown;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ##################################################################### */
 /* ##########################   SMARTPHONE   ########################### */
 /* ##################################################################### */
