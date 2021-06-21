@@ -17,10 +17,7 @@
             $user->setBook_id($_POST["book"]);
             $getBook = $bookManager->getbook($book);
             $getUser = $userManager->getUserById($user);
-          if(isset($_POST["validate"]))
-          {            
             $bookManager->borrowingBook($book, $user);
-          }
       }
 
 ?>

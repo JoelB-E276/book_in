@@ -33,7 +33,7 @@ VALUES
 
 CREATE TABLE book
 (
-  id_book INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  book_id INT UNSIGNED NOT NULL AUTO_INCREMENT,
   title VARCHAR(250) NOT NULL,
   author VARCHAR(250) NOT NULL,
   `resume` VARCHAR(8000) NULL,
@@ -47,7 +47,7 @@ CREATE TABLE book
   rendering_date DATE NULL,
   PRIMARY KEY (id_book),
   FOREIGN KEY (user_id) REFERENCES `user`(id)
-)
+);
 
 INSERT INTO book
 (`title`, `author`, `release_date`, `genre`, `edition`, `number_pages`, `availability`, `resume`)
